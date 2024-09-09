@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -9,28 +9,99 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="icon" href="" />
+    <script src="app.js" defer></script>
+    <script src="experiment.js" defer></script>
   </head>
 
   <body>
+    <nav>
+      <!-- Sticky nav bar that remains at top of screen when scrolling -->
+      <ul>
+        <li class="navLink"><a href="#top">Top Section</a></li>
+        <li class="navLink"><a href="#middle">Middle Section</a></li>
+        <li class="navLink"><a href="#bottom">Bottom Section</a></li>
+      </ul>
+    </nav>
+
+    <hr />
+
     <header>
       <h1>Title</h1>
     </header>
 
-    <nav></nav>
+    <div>
+      <button id="chaos">
+        <sup class="chaosA">pls</sup>
+        <sub class="chaosB">press</sub>
+        <sup class="chaosA">4</sup>
+        <sub class="chaosB">chaos</sub>
+      </button>
+
+      <button id="scramble">
+        <p>I DISLIKE THE TITLES</p>
+      </button>
+    </div>
 
     <main>
-      <section id="top"></section>
+      <section id="top" class="pretty noEdge">
+        <h2>Top</h2>
 
-      <section id="middle"></section>
+        <pre>Image goes here</pre>
+         
+        <p>Look! Planet.</p>
+      </section>
 
-      <section id="bottom">
-        <section id="about"></section>
+      <section id="middle" class="ugly noEdge">
+        <h2>Middle</h2>
 
-        <section id="contact"></section>
+        <p>Middling content</p>
+      </section>
+
+      <section id="bottom" class="pretty noEdge">
+        <h2>Bottom<sup>Tee Hee</sup></h2>
+
+        <section id="about">
+          <h3>About Our Agency</h3>
+
+          <p>Boring stuff</p>
+        </section>
+
+        <section id="contact">
+          <h3>Contact Us</h3>
+          <form action="submit">
+            <h4>A Form</h4>
+            <button>Click Me</button>
+          </form>
+        </section>
+
+        <section id="team">
+          <h3>Corporate Shills</h3>
+          <!-- Gallery of team members -->
+          <div id="shill1" class="shill">
+            <h4>Shill 1</h4>
+            <pre>Picture</pre>
+            <p>Sad info</p>
+          </div>
+
+          <div id="shill2" class="shill">
+            <h4>Shill 2</h4>
+            <pre>Picture</pre>
+            <p>Sad info</p>
+          </div>
+
+          <div id="shill3" class="shill">
+            <h4>Shill 3</h4>
+            <pre>Picture</pre>
+            <p>Sad info</p>
+          </div>
+        </section>
       </section>
     </main>
 
-    <footer></footer>
-    <script src="app.js"></script>
+    <hr />
+
+    <footer>
+      <sub>There is no ethical consumption under late stage capitalism</sub>
+    </footer>
   </body>
 </html>
