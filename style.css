@@ -4,9 +4,7 @@
 
 /* ------------ ELEMENTS ------------ */
 
-main, section, div, form, nav {
-	border: 1px solid gray;
-}
+main, main section, main div, main form { border: 1px solid gray; }
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -23,8 +21,17 @@ nav {
 	position: sticky;
 	top: 0;
 	overflow: hidden;
-	background-color: black;
+	width: 100%;
+	max-width: 100vw;
+	display: grid;
+	grid-template-columns: 1fr minmax(50px, 50%)  minmax(50px, 25%);
+	grid-template-rows: auto;
+	background-color: var(--color-1);
+	align-items: center;
+	box-sizing: border-box;
 }
+
+nav div { padding: 5px; }
 
 nav a {
 	display: inline-block;
@@ -34,13 +41,9 @@ nav a {
 	text-decoration: none;
 }
 
-h1 {
-	text-align: center;
-}
+h1 { text-align: center; }
 
-section {
-	margin: 5px;
-}
+section { margin: 5px; }
 
 form {
 	margin: 5px;
@@ -64,6 +67,12 @@ form {
 
 /* ------------ IDs ------------ */
 
+#links {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
 #planetImg {
 	border-radius: 50%;
 	width: 25%;
@@ -73,3 +82,17 @@ form {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+#navBuffer { 
+	width: 100%; 
+	min-width: 50px;
+}
+
+#planetMenu { 
+	width: auto; 
+	display: flex;
+	justify-content: end;
+	white-space: nowrap;
+}
+
+#planetMenu * { margin: auto; }
