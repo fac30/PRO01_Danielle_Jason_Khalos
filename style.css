@@ -1,3 +1,32 @@
+:root {
+	--DAY: #895656;
+	--NIGHT: #000000;
+	--whoKnows: #5312ff;
+}
+  
 body {
+	background-color: var(--DAY);
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+	margin: 5px;
+}
+
+form {
+	margin: 5px;
+	border: 2px dashed var(--NIGHT);
+	padding: 5px;
+}
+
+.allWrong {
+	border: 5px solid var(--whoKnows);
+	background-color: var(--NIGHT);
+	color: var(--DAY);
+}
+
+.shill {
+	margin: 5px;
+	border: 2px double var(--NIGHT);
+	padding: 5px;
 }
