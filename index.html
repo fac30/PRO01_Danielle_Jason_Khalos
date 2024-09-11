@@ -15,81 +15,113 @@
 
 <body>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="#team">Team</a>
-    <!-- Sticky nav bar that remains at top of screen when scrolling -->
+    <div id="links">
+      <div>
+        <a href="#home">Home</a>
+      </div>
+      
+      <div>
+        <a href="#about">About</a>
+      </div>
+      
+      <div>
+        <a href="#contact">Contact</a>
+      </div>
+      
+      <div>
+        <a href="#team">Team</a>
+      </div>
+    </div>
+
+    <div id="navBuffer">
+    </div>
+
+    <div id="planetMenu">
+      <pre>Dropdown menu</pre>
+    </div>
   </nav>
 
-  <header>
-    <h1>Welcome to </h1>
-  </header>
+  <main>
+    <section id="planet">
+      <div id="agencyName">
+        <h1>Galactic Getaways</h1>
+      </div>
 
-    <main>
-      <section id="top">
-        <h2>Top</h2>
-        <div class="grid">
-          <div class="item">
-            <p>
+      <div id="planetEmptyCorner">
+      </div>
 
-            </p>
-          </div>
-          <div class="item"><img src="images/earth.png" alt="Earth" class="img"></div>
-          <div class="item"><p></p></div>
+      <div class="planetInfo" id="infoLeft">
+        <pre>Some content</pre>
+      </div>
+
+      <div id="planetImg">
+        <img alt="Earth" src="images/earth.png"/>
+      </div>
+
+      <div class="planetInfo" id="infoRight">
+        <pre>Some content</pre>
+      </div>
+
+      <div id="planetName">
+        <h2>Planet</h2>
+      </div>
+    </section>
+
+    <hr/>
+
+    <section id="contact">
+      <h3>Contact Us</h3>
+
+      <div class="contact-form">
+      <form action="submit">
+        <h4>A Form</h4>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br><br>
+        <label for="email" id="email">Email:</label><br>
+        <input type="email" id="email"><br><br>
+        <textarea name="message" rows="10" cols="30" placeholder="Share your thoughts!"></textarea><br><br>
+        <button>Submit</button>
+      </form>
+    </div>
+    </section>
+
+    <hr/>
+
+    <section id="team">
+      <h2>Meet Your Agents</h2>
+      <div id="strapline">
+        <p>
+          <b>Our highly-trained team of</b> <s>meat</s><b>customer support a</b><s>nimals</s><b>gents</b>
+        </p>
+      </div>
+      <div id="gallery">
+        <div id="teamMember1" class="teamMember">
+          <h4>teamMember 1</h4>
+          <img class ="teamImages" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.mVmiel7sYbcoFrwOEImRcgHaE8%26pid%3DApi&f=1&ipt=b8e319354c8503ba7c1d955de9779d085478e73f4c75ac71541828a828a235d2&ipo=images" alt="alien" width="300px" height="auto">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti odit, voluptas autem eligendi eveniet inventore laudantium. Earum deleniti voluptatibus distinctio quibusdam, explicabo maxime possimus. Magnam officia mollitia dolor voluptate eum!</p>
         </div>
-        <!-- Planet display -->
-      </section>
 
-      <section id="middle">
-        <h2>Middle</h2>
-        <p>Middling content</p>
-      </section>
+        <div id="teamMember2" class="teamMember">
+          <h4>teamMember 2</h4>
+          <img class ="teamImages" src="https://img.freepik.com/premium-photo/alien-lawyer-files-lawsuit-against-earth-corporation-copyright-infringement-after-discovering-similar-alien-brand-logo-illustration-generative-ai_850000-13454.jpg" alt="alien" width="300px" height="auto">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nam ad et quod, beatae saepe suscipit fugit accusamus harum rerum quasi asperiores molestias facilis totam esse officia culpa, accusantium praesentium?</p>
+        </div>
 
-      <section id="bottom" class="pretty noEdge">
-        <h2>Bottom<sup>Tee Hee</sup></h2>
+        <div id="teamMember3" class="teamMember">
+          <h4>teamMember 3</h4>
+          <img class ="teamImages" src="https://th.bing.com/th/id/OIP.x4vz8pKajpbLvj1P_ZmASAHaFi?w=272&h=204&c=7&r=0&o=5&pid=1.7" alt="alien" width="300px" height="auto">
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quae, dignissimos laudantium vel tenetur repellendus sint nobis amet dolor ipsa repudiandae fugit temporibus quaerat beatae. Voluptates, libero dolorum! Rem, quaerat.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        <section id="about">
-          <h3>About Our Agency</h3>
-
-          <p>Boring stuff</p>
-        </section>
-
-        <section id="contact">
-          <h3>Contact Us</h3>
-          <form action="submit">
-            <h4>A Form</h4>
-            <button>Click Me</button>
-          </form>
-        </section>
-
-        <section id="team">
-          <h3>Corporate Shills</h3>
-          <!-- Gallery of team members -->
-          <div id="shill1" class="shill">
-            <h4>Shill 1</h4>
-            <pre>Picture</pre>
-            <p>Sad info</p>
-          </div>
-
-          <div id="shill2" class="shill">
-            <h4>Shill 2</h4>
-            <pre>Picture</pre>
-            <p>Sad info</p>
-          </div>
-
-          <div id="shill3" class="shill">
-            <h4>Shill 3</h4>
-            <pre>Picture</pre>
-            <p>Sad info</p>
-          </div>
-        </section>
-      </section>
-    </main>
-
-    <hr />
+  <hr />
 
   <footer>
+    <pre>Footer hi</pre>
   </footer>
 </body>
 
