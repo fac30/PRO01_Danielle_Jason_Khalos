@@ -4,6 +4,11 @@
 
 /* ------------ ELEMENTS ------------ */
 
+/*To delete - colors used for grid reference*/
+h3, h4, p {
+	color: black;
+}
+
 main, section, div, form, nav {
 	border: 1px solid gray;
 }
@@ -34,7 +39,9 @@ nav a {
 	text-decoration: none;
 }
 
-h1 {
+
+h1
+ {
 	text-align: center;
 }
 
@@ -57,10 +64,16 @@ form {
 }
 
 .shill {
-	margin: 5px;
-	border: 2px double var(--NIGHT);
-	padding: 5px;
+	display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 5px;
+    /* border: 6px solid green; */
+    padding: 5px;
+	text-align: center;
 }
+
 
 /* ------------ IDs ------------ */
 
@@ -73,3 +86,18 @@ form {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+#gallery {
+	/* border: red 1px solid; */
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+/* ------------ MEDIA QUERIES ------------ */
+
+@media screen and (max-width: 700px) {
+	#gallery {
+        grid-template-columns: 1fr;
+	}
+}
+
