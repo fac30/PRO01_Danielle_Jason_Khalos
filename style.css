@@ -33,12 +33,6 @@ body {
   color: var(--placeholderText);
 }
 
-form {
-  margin: 5px;
-  border: 2px dashed;
-  padding: 5px;
-}
-
 nav {
   position: sticky;
   top: 0;
@@ -100,6 +94,18 @@ form {
   padding: 5px;
   text-align: center;
 }
+
+.contact-form {
+	display: flex;
+	justify-content: center;
+}
+
+
+.contact-form {
+	display: flex;
+	justify-content: center;
+}
+
 
 /* ------------ ID ------------ */
 
