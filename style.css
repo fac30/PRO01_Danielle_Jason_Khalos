@@ -1,5 +1,6 @@
 :root {
 	--color-1: black;
+	--placeholderText: gray;
 }
 
 /* ------------ ELEMENTS ------------ */
@@ -10,7 +11,7 @@ main, section, div, form, nav {
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	color: white;
+	color: var(--placeholderText);
 }
 
 form {
@@ -48,7 +49,9 @@ form {
 	padding: 5px;
 }
 
-/* ------------ CLASSES ------------ */
+/* ------------ ELEMENT => CLASS ------------ */
+
+/* ------------ CLASS ------------ */
 
 .allWrong {
 	border: 5px solid var(--whoKnows);
@@ -62,14 +65,60 @@ form {
 	padding: 5px;
 }
 
-/* ------------ IDs ------------ */
+/* ------------ ID ------------ */
 
-#planetImg {
+/* ------------ ID => ELEMENT ------------ */
+
+#planetImg > img {
 	border-radius: 50%;
 	width: 25%;
 	padding: 2px;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	/* position: static; */
+	/* top: 50%; */
+	/* left: 50%; */
+	/* transform: translate(-50%, -50%); */
+}
+
+/* ------------ ID => CLASS ------------ */
+
+#planet {
+	width: 100%;
+	display: grid;
+	grid:
+		"agencyName agencyName agencyName planetEmptyCorner" 1fr
+		"planetInfoL planetImg planetImg planetInfoR" 1fr
+		"planetInfoL planetImg planetImg planetInfoR" 1fr
+		"planetName planetName planetName planetName" 1fr
+		/ 1fr 1fr 1fr 1fr;
+	gap: 8px;
+	justify-items: center;
+}
+  
+#agencyName { 
+	grid-area: agencyName; 
+	width: 100%;
+}
+#planetEmptyCorner {
+	grid-area: planetEmptyCorner; 
+	width: auto;
+}
+#infoLeft {
+	grid-area: planetInfoL; 
+	width: 100%;
+	text-align: center;
+}
+#planetImg {
+	grid-area: planetImg; 
+	width: auto;
+	text-align: center;
+}
+#infoRight {
+	grid-area: planetInfoR; 
+	width: 100%;
+	text-align: center;
+}
+#planetName { 
+	grid-area: planetName; 
+	width: 100%;
+	text-align: center;
 }
