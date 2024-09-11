@@ -5,6 +5,11 @@
 
 /* ------------ ELEMENTS ------------ */
 
+/*To delete - colors used for grid reference*/
+h3, h4, p {
+	color: black;
+}
+
 main, section, div, form, nav {
 	border: 1px solid gray;
 }
@@ -35,7 +40,9 @@ nav a {
 	text-decoration: none;
 }
 
-h1 {
+
+h1
+ {
 	text-align: center;
 }
 
@@ -60,9 +67,14 @@ form {
 }
 
 .shill {
-	margin: 5px;
-	border: 2px double var(--NIGHT);
-	padding: 5px;
+	display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 5px;
+    /* border: 6px solid green; */
+    padding: 5px;
+	text-align: center;
 }
 
 /* ------------ ID ------------ */
@@ -79,46 +91,17 @@ form {
 	/* transform: translate(-50%, -50%); */
 }
 
-/* ------------ ID => CLASS ------------ */
-
-#planet {
-	width: 100%;
+#gallery {
+	/* border: red 1px solid; */
 	display: grid;
-	grid:
-		"agencyName agencyName agencyName planetEmptyCorner" 1fr
-		"planetInfoL planetImg planetImg planetInfoR" 1fr
-		"planetInfoL planetImg planetImg planetInfoR" 1fr
-		"planetName planetName planetName planetName" 1fr
-		/ 1fr 1fr 1fr 1fr;
-	gap: 8px;
-	justify-items: center;
+	grid-template-columns: auto auto auto;
 }
-  
-#agencyName { 
-	grid-area: agencyName; 
-	width: 100%;
+
+/* ------------ MEDIA QUERIES ------------ */
+
+@media screen and (max-width: 700px) {
+	#gallery {
+        grid-template-columns: 1fr;
+	}
 }
-#planetEmptyCorner {
-	grid-area: planetEmptyCorner; 
-	width: auto;
-}
-#infoLeft {
-	grid-area: planetInfoL; 
-	width: 100%;
-	text-align: center;
-}
-#planetImg {
-	grid-area: planetImg; 
-	width: auto;
-	text-align: center;
-}
-#infoRight {
-	grid-area: planetInfoR; 
-	width: 100%;
-	text-align: center;
-}
-#planetName { 
-	grid-area: planetName; 
-	width: 100%;
-	text-align: center;
-}
+
