@@ -13,12 +13,6 @@ body {
 	color: white;
 }
 
-form {
-	margin: 5px;
-	border: 2px dashed;
-	padding: 5px;
-}
-
 nav {
 	position: sticky;
 	top: 0;
@@ -62,6 +56,12 @@ form {
 	padding: 5px;
 }
 
+.contact-form {
+	display: flex;
+	justify-content: center;
+}
+
+
 /* ------------ IDs ------------ */
 
 #planetImg {
@@ -73,3 +73,6 @@ form {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+
+

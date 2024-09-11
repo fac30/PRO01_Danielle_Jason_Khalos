@@ -63,7 +63,7 @@
         <pre>Planet Box 4</pre>
       </div>
 
-      <div id="planetInfo5"> <!-- PLANET PICTURE -->
+      <div id="planetInfo5" hidden> <!-- PLANET PICTURE -->
         <img id="planetImg" alt="Earth" src="images/earth.png"/>
         <!-- alt="earth" will need to change with selection -->
       </div>
@@ -91,10 +91,20 @@
 
     <section id="contact">
       <h3>Contact Us</h3>
+
+      <div class="contact-form">
       <form action="submit">
         <h4>A Form</h4>
-        <button>Click Me</button>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br><br>
+        <label for="email" id="email">Email:</label><br>
+        <input type="email" id="email"><br><br>
+        <textarea name="message" rows="10" cols="30" placeholder="Share your thoughts!"></textarea><br><br>
+        <button>Submit</button>
       </form>
+    </div>
     </section>
 
     <hr/>
