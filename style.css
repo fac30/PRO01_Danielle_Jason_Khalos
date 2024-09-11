@@ -1,59 +1,57 @@
 :root {
-	--color-1: black;
-	--placeholderText: gray;
+  --color-1: black;
+  --placeholderText: gray;
+}
+
+/* ------------ MEDIA QUERIES ------------ */
+
+@media screen and (max-width: 700px) {
+  #gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ------------ ELEMENTS ------------ */
 
 /*To delete - colors used for grid reference*/
-h3, h4, p {
-	color: black;
-}
+h3, h4, p { color: black; }
 
-main, section, div, form, nav {
-	border: 1px solid gray;
-}
+main, section, div, form, nav { border: 1px solid gray; }
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	color: var(--placeholderText);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--placeholderText);
 }
 
 form {
-	margin: 5px;
-	border: 2px dashed;
-	padding: 5px;
+  margin: 5px;
+  border: 2px dashed;
+  padding: 5px;
 }
 
 nav {
-	position: sticky;
-	top: 0;
-	overflow: hidden;
-	background-color: black;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: black;
 }
 
 nav a {
-	display: inline-block;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px;
-	text-decoration: none;
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
 }
 
+h1 { text-align: center; }
 
-h1
- {
-	text-align: center;
-}
-
-section {
-	margin: 5px;
-}
+section { margin: 5px; }
 
 form {
-	margin: 5px;
-	border: 2px dashed var(--NIGHT);
-	padding: 5px;
+  margin: 5px;
+  border: 2px dashed var(--NIGHT);
+  padding: 5px;
 }
 
 /* ------------ ELEMENT => CLASS ------------ */
@@ -61,20 +59,20 @@ form {
 /* ------------ CLASS ------------ */
 
 .allWrong {
-	border: 5px solid var(--whoKnows);
-	background-color: var(--NIGHT);
-	color: var(--DAY);
+  border: 5px solid var(--whoKnows);
+  background-color: var(--NIGHT);
+  color: var(--DAY);
 }
 
 .shill {
-	display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    margin: 5px;
-    /* border: 6px solid green; */
-    padding: 5px;
-	text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  /* border: 6px solid green; */
+  padding: 5px;
+  text-align: center;
 }
 
 /* ------------ ID ------------ */
@@ -82,26 +80,61 @@ form {
 /* ------------ ID => ELEMENT ------------ */
 
 #planetImg > img {
-	border-radius: 50%;
-	width: 25%;
-	padding: 2px;
-	/* position: static; */
-	/* top: 50%; */
-	/* left: 50%; */
-	/* transform: translate(-50%, -50%); */
+  border-radius: 50%;
+  width: 25%;
+  padding: 2px;
+  /* position: static; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
 }
 
 #gallery {
-	/* border: red 1px solid; */
-	display: grid;
-	grid-template-columns: auto auto auto;
+  /* border: red 1px solid; */
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 
-/* ------------ MEDIA QUERIES ------------ */
-
-@media screen and (max-width: 700px) {
-	#gallery {
-        grid-template-columns: 1fr;
-	}
+#planet {
+  width: 100%;
+  display: grid;
+  grid:
+    "agencyName agencyName agencyName planetEmptyCorner" 1fr
+    "planetInfoL planetImg planetImg planetInfoR" 1fr
+    "planetInfoL planetImg planetImg planetInfoR" 1fr
+    "planetName planetName planetName planetName" 1fr
+    / 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  justify-items: center;
 }
 
+#agencyName {
+  grid-area: agencyName;
+  width: 100%;
+}
+#planetEmptyCorner {
+  grid-area: planetEmptyCorner;
+  width: auto;
+}
+#infoLeft {
+  grid-area: planetInfoL;
+  width: 100%;
+  text-align: center;
+}
+#planetImg {
+  grid-area: planetImg;
+  width: auto;
+  text-align: center;
+}
+#infoRight {
+  grid-area: planetInfoR;
+  width: 100%;
+  text-align: center;
+}
+#planetName {
+  grid-area: planetName;
+  width: 100%;
+  text-align: center;
+}
+
+/* ------------ ID => CLASS ------------ */
