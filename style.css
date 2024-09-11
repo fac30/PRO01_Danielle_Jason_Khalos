@@ -1,59 +1,98 @@
 :root {
-	--color-1: black;
+  --color-1: black;
+  --placeholderText: gray;
+}
+
+/* ------------ MEDIA QUERIES ------------ */
+
+@media screen and (max-width: 700px) {
+  #gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ------------ ELEMENTS ------------ */
 
-main, section, div, form, nav {
-	border: 1px solid gray;
+/*To delete - colors used for grid reference*/
+h3,
+h4,
+p {
+  color: black;
+}
+
+main,
+section,
+div,
+form,
+nav {
+  border: 1px solid gray;
 }
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--placeholderText);
 }
 
 nav {
-	position: sticky;
-	top: 0;
-	overflow: hidden;
-	background-color: black;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: black;
+  width: 100%;
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr minmax(50px, 50%) minmax(50px, 15%);
+  grid-template-rows: 1;
+  background-color: var(--color-1);
+  align-items: center;
+  box-sizing: border-box;
+}
+
+nav > div {
+  margin: 1%;
 }
 
 nav a {
-	display: inline-block;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 14px;
-	text-decoration: none;
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
 }
 
 h1 {
-	text-align: center;
+  text-align: center;
 }
 
 section {
-	margin: 5px;
+  margin: 5px;
 }
 
 form {
-	margin: 5px;
-	border: 2px dashed var(--NIGHT);
-	padding: 5px;
+  margin: 5px;
+  border: 2px dashed var(--NIGHT);
+  padding: 5px;
 }
 
-/* ------------ CLASSES ------------ */
+/* ------------ ELEMENT => CLASS ------------ */
+
+/* ------------ CLASS ------------ */
 
 .allWrong {
-	border: 5px solid var(--whoKnows);
-	background-color: var(--NIGHT);
-	color: var(--DAY);
+  border: 5px solid var(--whoKnows);
+  background-color: var(--NIGHT);
+  color: var(--DAY);
 }
 
 .shill {
-	margin: 5px;
-	border: 2px double var(--NIGHT);
-	padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  /* border: 6px solid green; */
+  padding: 5px;
+  text-align: center;
 }
 
 .contact-form {
@@ -62,17 +101,83 @@ form {
 }
 
 
-/* ------------ IDs ------------ */
-
-#planetImg {
-	border-radius: 50%;
-	width: 25%;
-	padding: 2px;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.contact-form {
+	display: flex;
+	justify-content: center;
 }
 
 
+/* ------------ ID ------------ */
 
+#links {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#planet {
+  width: 100%;
+  display: grid;
+  grid:
+    "agencyName agencyName agencyName planetEmptyCorner" 1fr
+    "planetInfoL planetImg planetImg planetInfoR" 1fr
+    "planetInfoL planetImg planetImg planetInfoR" 1fr
+    "planetName planetName planetName planetName" 1fr
+    / 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  justify-items: center;
+}
+
+#agencyName {
+  grid-area: agencyName;
+  width: 100%;
+}
+#planetEmptyCorner {
+  grid-area: planetEmptyCorner;
+  width: auto;
+}
+#infoLeft {
+  grid-area: planetInfoL;
+  width: 100%;
+  text-align: center;
+}
+#planetImg {
+  grid-area: planetImg;
+  width: auto;
+  text-align: center;
+}
+#infoRight {
+  grid-area: planetInfoR;
+  width: 100%;
+  text-align: center;
+}
+#planetName {
+  grid-area: planetName;
+  width: 100%;
+  text-align: center;
+}
+
+#gallery {
+  /* border: red 1px solid; */
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+/* ------------ ID => ELEMENT ------------ */
+
+#links > div {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: content;
+}
+
+#planetImg > img {
+  border-radius: 50%;
+  width: 25%;
+  padding: 2px;
+  /* position: static; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+
+/* ------------ ID => CLASS ------------ */
