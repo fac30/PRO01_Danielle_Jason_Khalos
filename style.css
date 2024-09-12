@@ -1,6 +1,6 @@
 :root {
   --color-1: #000000;
-  --color-2: #dddddd;
+  --color-2: #ffff;
   --color-3: #6b6969;
 }
 
@@ -14,17 +14,25 @@
 
 /* ------------ ELEMENTS ------------ */
 
-/* main,
+/*To delete - colors used for grid reference
+h3,
+h4,
+p {
+  color: black;
+}*/
+/*
+main,
 section,
 div,
 form,
 nav {
-  border: 1px solid var(--placeholderBorder);
-} */
+  border: 1px solid gray;
+}*/
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--color-3);
+  color: var(--color-2);
+  background-color: var(--color-1);
 }
 
 nav {
@@ -41,6 +49,14 @@ nav {
   background-color: var(--color-1);
   align-items: center;
   box-sizing: border-box;
+}
+
+nav a {
+	display: inline-block;
+	text-align: center;
+	padding: 14px;
+	text-decoration: none;
+  color: var(--color-2)
 }
 
 h1 {
