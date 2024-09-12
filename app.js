@@ -1,7 +1,7 @@
 // COLOUR SWITCHER
 
 document.getElementById('planetsNav').addEventListener('change', function(event) {
-  const planetName = event.target.value;
+  const planetName = event.target.value.toLowerCase();
   
   // Get the selected planet's data (e.g., jupiter, mars)
   const planet = window[planetName]; // Assuming you have them in global scope
