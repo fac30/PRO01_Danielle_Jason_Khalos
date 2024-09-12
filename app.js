@@ -13,7 +13,9 @@ document.getElementById('planetsNav').addEventListener('change', function(event)
   document.getElementById('infoRight').innerHTML = description.column2;
 
   // Update theme colors
-  document.body.style.backgroundColor = planet.colors.color1;
+  document.documentElement.style.setProperty('--color-1', planet.colors.color1);
+  document.documentElement.style.setProperty('--color-2', planet.colors.color2);
+  document.documentElement.style.setProperty('--placeholderText', planet.colors.color3);
 });
 
 
