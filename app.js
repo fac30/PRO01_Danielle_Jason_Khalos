@@ -16,6 +16,10 @@ document.getElementById('planetsNav').addEventListener('change', function(event)
   document.documentElement.style.setProperty('--color-1', planet.colors.color1);
   document.documentElement.style.setProperty('--color-2', planet.colors.color2);
   document.documentElement.style.setProperty('--color-3', planet.colors.color3);
+
+  // Update planet img
+  const image = document.getElementById('planetImage');
+  image.src = planet.image;
 });
 
 
@@ -162,11 +166,11 @@ const template = {
 const jupiter = {
   name: 'Jupiter',
   colors: {
-    color1: "#3B2F2F",
-    color2: "#D7CCC8",
+    color1: "#000000",
+    color2: "#ffffff",
     color3: "#A1887F"
   },
-  image: 'url("images/jupiter.png")',
+  image: "images/jupiter.png",
   getDescription() {
     return {
       column1: `
@@ -182,11 +186,11 @@ const jupiter = {
 const mars = {
   name: 'Mars',
   colors: { 
-    color1: "#4C0000", 
-    color2: "#2E2E2E", 
-    color3: "#D4B59E" 
+    color1: "#000000", 
+    color2: "#FAF9F6", 
+    color3: "#998170" 
   },
-  image: 'url("images/mars.png")',
+  image: "images/mars.png",
   getDescription() {
     return { 
     column1: `
@@ -208,11 +212,11 @@ const mars = {
 const mercury = {
   name: 'Mercury',
   colors: {
-     color1: "#1C1C1C", 
-     color2: "#4A90E2", 
-     color3: "#919191"
+     color1: "#000000", 
+     color2: "#ffffff", 
+     color3: "#1a1818"
     },
-  image: 'url("images/mercury.png")',
+  image: "images/mercury.png",
   getDescription() {
     return { 
     column1: `
@@ -229,11 +233,11 @@ const mercury = {
 const neptune = {
   name: 'Neptune',
   colors: { 
-    color1: "#0e0e24", 
+    color1: "#000000", 
     color2: "#F8F8FF", 
     color3: "#28697a" 
   },
-  image: 'url("images/neptune.png")',
+  image: "images/neptune.png",
   getDescription() {
     return{ 
     column1: `
@@ -251,11 +255,11 @@ const neptune = {
 const pluto = {
   name: 'Pluto',
   colors: { 
-    color1: "#4C0000", 
+    color1: "#000000", 
     color2: "#2E2E2E", 
     color3: "#D4B59E" 
   },
-  image: 'url("images/pluto.png")',
+  image: "images/pluto.png",
   getDescription() { 
     return {
     column1: `
@@ -269,11 +273,11 @@ const pluto = {
 const saturn = {
   name: 'Saturn',
   colors: { 
-    color1: "#4B3A2A", 
+    color1: "#000000", 
     color2: "#FFFAFA", 
     color3: "#B8860B" 
   },
-  image: 'url("images/saturn.png")',
+  image: "images/saturn.png",
   getDescription() { 
     return {
     column1: `
@@ -291,11 +295,11 @@ const saturn = {
 const venus = {
   name: 'Venus',
   colors: { 
-    color1: "#241e0d", 
+    color1: "#000000", 
     color2: "#ede9da", 
     color3: "#8C7A50" 
   },
-  image: 'url("images/venus.png")',
+  image: "images/venus.png",
   getDescription() {
     return { 
     column1: `
@@ -316,7 +320,7 @@ const uranus = {
     color2: "#ffff", 
     color3: "#6b6969" 
   },
-  image: 'url("images/sun.png")',
+  image: "images/uranus.png",
   getDescription() { 
     return {
     column1: `
@@ -337,7 +341,7 @@ const sun = {
     color2: "#ffff", 
     color3: "#6b6969" 
   },
-  image: 'url("images/sun.png")',
+  image: "images/sun.png",
   getDescription() {
     return { 
     column1: `
@@ -346,6 +350,33 @@ const sun = {
     column2: ``
     }  }
 }
+
+const earth = {
+  name: 'Earth',
+  colors: {
+    color1: "#000000",
+    color2: "#ffff",
+    color3: "#18182d"
+  },
+  image: "images/earth.png",
+  getDescription() {
+    return {
+      column1: `
+      <p><strong>About Us:</strong></p>
+      <p><strong>Welcome to Galactic Getaways: Your Passport to the Stars!</strong> At Galactic Getaways, we’re not just your average travel agency — we’re pioneers of the ultimate frontier: the Solar System! Our mission is to turn your wildest space-travel dreams into reality, offering interplanetary vacations that blend adventure, relaxation, and scientific wonder. Whether you’re looking to watch a sunrise on Mars, float through Saturn’s rings, or embark on a moonwalk across Europa, we’ve got you covered.</p>
+      `,
+      column2: `
+      <p><strong>Why Choose Us?</strong> <ul>
+      <li><strong>Custom Cosmic Adventures:</strong> Whether it's hiking Olympus Mons or floating above Jupiter’s Great Red Spot, we design personalized space trips tailored to your cosmic dreams.</li>
+      <li><strong>Luxury Space Travel:</strong> Enjoy zero-gravity lounges, stellar dining, and private suites with breathtaking views—all with 5-star service under the stars.</li>
+      <li><strong>Expert-Led Journeys:</strong> Travel with astronauts and astronomers who offer fascinating insights about the universe.</li>
+      <li><strong>Sustainable Exploration:</strong> We prioritize eco-friendly, sustainable space travel to preserve the beauty of our celestial destinations.</li>
+    </ul></p>
+      `
+    }
+  }
+}
+
 
 window.jupiter = jupiter;
 window.mars = mars;
@@ -356,3 +387,4 @@ window.saturn = saturn;
 window.venus = venus;
 window.uranus = uranus;
 window.sun = sun;
+window.earth = earth;
