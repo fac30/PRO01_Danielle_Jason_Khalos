@@ -22,10 +22,6 @@ color 2 - background
 
 */
 
-// document.documentElement.style.setProperty('--color-1', planet.color1);
-// document.documentElement.style.setProperty('--color-2', planet.color2);
-
-
 
 document.getElementById('planetsNav').addEventListener('change', function(event) {
   const planetName = event.target.value;
@@ -118,7 +114,7 @@ const mercury = {
     <p><strong>Mercury Has a Comet-Like Tail:</strong> This is due to the solar wind interacting with Mercury’s exosphere, stripping away sodium atoms and creating a glowing tail that extends millions of miles into space. You wouldn’t see this tail with your eyes from Mercury’s surface, but it's visible through special instruments</p>
     `
   }
-}
+}}
 
 const neptune = {
   name: 'Neptune',
@@ -139,6 +135,7 @@ const neptune = {
     <p><strong>Rings of Ice and Dust:</strong> Neptune has a faint ring system composed of ice particles and dust. As you explore the planet’s ringed wonders, you might even get a chance to observe how these rings interact with Neptune’s numerous moons!</p>
     `
   }
+}
 }
 
 const pluto = {
@@ -201,7 +198,7 @@ const venus = {
     ` 
   }
 }
-
+}
 const uranus = {
   name: 'Uranus',
   colors: { 
@@ -222,7 +219,7 @@ const uranus = {
     ` 
   }
 }
-
+}
 const sun = {
   name: 'Sun',
   colors: { 
