@@ -237,7 +237,6 @@ const sun = {
     ${template.intro1}${this.name}${template.intro2}
     `, 
     column2: ``
-    }
-  }
+    }  }
 }
 
