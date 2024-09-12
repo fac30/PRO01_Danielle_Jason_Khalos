@@ -1,6 +1,20 @@
 // COLOUR SWITCHER
 
-/* Dani's code goes here */
+document.getElementById('planetsNav').addEventListener('change', function(event) {
+  const planetName = event.target.value;
+  
+  // Get the selected planet's data (e.g., jupiter, mars)
+  const planet = window[planetName]; // Assuming you have them in global scope
+  const description = planet.getDescription();
+
+  // Update page content
+  document.getElementById('planetName').innerHTML = planet.name;
+  document.getElementById('infoLeft').innerHTML = description.column1;
+  document.getElementById('infoRight').innerHTML = description.column2;
+
+  // Update theme colors
+  document.body.style.backgroundColor = planet.colors.color1;
+});
 
 
 // CONTACT FORM
@@ -139,6 +153,10 @@ const template = {
     are some fun facts that make it a must-visit vacation spot for all cosmic travelers:</p>`
 }
 
+
+/* Planet data */
+
+/* Changed the description into a function so that this.name works */
 const jupiter = {
   name: 'Jupiter',
   colors: {
@@ -147,14 +165,13 @@ const jupiter = {
     color3: "#A1887F"
   },
   image: 'url("images/jupiter.png")',
-  description: {
-    column1: `
-    ${template.intro1}${this.name}${template.intro2}
-    <p><strong>The Ultimate Giant:</strong> Jupiter is so big that over 1,300 Earths could fit inside it! This gas giant is the largest planet in the Solar System. Visiting Jupiter would make you feel like you’ve stepped onto a truly colossal world. Imagine gazing at its vast swirling clouds and the famous Great Red Spot, a storm bigger than Earth that’s been raging for centuries.</p>
-    `,
-    column2: `<p><strong>Moon-Hopping Adventures:</strong> Jupiter has 79 moons, and four of them -Io, Europa, Ganymede, and Callisto— are bigger than any planet in the inner Solar System (except Earth). Each moon offers a different adventure, from volcanic landscapes on Io to possible alien oceans on Europa!</p>
-
-    <p><strong>Experience Jupiter’s Superfast Days:</strong> Want to experience a fast-paced day? A day on Jupiter lasts only 10 hours! Despite being the largest planet, it spins the fastest, so while you're enjoying the sights, the sun will rise and set in no time. Perfect for those who want to experience multiple sunrises and sunsets in a single Earth day!</p>`
+  getDescription() {
+    return {
+      column1: `
+      ${template.intro1}${this.name}${template.intro2}
+      <p><strong>The Ultimate Giant:</strong> Jupiter is so big that over 1,300 Earths could fit inside it!...</p>`,
+      column2: `<p><strong>Moon-Hopping Adventures:</strong> Jupiter has 79 moons...</p>`
+    }
   }
 }
 
@@ -166,7 +183,8 @@ const mars = {
     color3: "#D4B59E" 
   },
   image: 'url("images/mars.png")',
-  descriptions: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2} 
     <p><strong>Experience "Martian Gravity":</strong> Mars has only 38% of Earth’s gravity. Imagine jumping three
@@ -179,6 +197,7 @@ const mars = {
     <p><strong>Red Dust Sunsets:</strong> Mars’ sky appears reddish-pink during the day, but at sunset, the sky
     turns blue! It’s the reverse of Earth — perfect for dreamy evening stargazing.</p>
     `
+    }
   }
 }
 
@@ -190,7 +209,8 @@ const mercury = {
      color3: "#919191"
     },
   image: 'url("images/mercury.png")',
-  description: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     <p><strong>Closest to the Sun, But Not the Hottest!</strong> Even though Mercury is the closest planet to the Sun, it’s not the hottest planet in the solar system—Venus holds that title. Mercury has virtually no atmosphere to trap heat, so it can’t retain the Sun’s warmth like Venus can. For adventurers, this makes Mercury a fascinating place to experience the raw, unfiltered power of the Sun up close!</p>
@@ -200,7 +220,7 @@ const mercury = {
     <p><strong>Mercury Has a Comet-Like Tail:</strong> This is due to the solar wind interacting with Mercury’s exosphere, stripping away sodium atoms and creating a glowing tail that extends millions of miles into space. You wouldn’t see this tail with your eyes from Mercury’s surface, but it's visible through special instruments</p>
     `
   }
-}
+}}
 
 const neptune = {
   name: 'Neptune',
@@ -210,7 +230,8 @@ const neptune = {
     color3: "#28697a" 
   },
   image: 'url("images/neptune.png")',
-  description: { 
+  getDescription() {
+    return{ 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     <p><strong>A Stunning Shade of Blue:</strong> Neptune’s vibrant blue color is thanks to the presence of methane in its atmosphere. This gas absorbs red light and reflects blue light, giving the planet its striking hue. With its beautiful deep blue tones, Neptune is like a sapphire in the solar system, making it a must-visit for interplanetary photographers looking to capture breathtaking cosmic landscapes!</p>
@@ -221,6 +242,7 @@ const neptune = {
     `
   }
 }
+}
 
 const pluto = {
   name: 'Pluto',
@@ -230,11 +252,13 @@ const pluto = {
     color3: "#D4B59E" 
   },
   image: 'url("images/pluto.png")',
-  description: { 
+  getDescription() { 
+    return {
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
     column2: `` 
+    }
   }
 }
 
@@ -246,7 +270,8 @@ const saturn = {
     color3: "#B8860B" 
   },
   image: 'url("images/saturn.png")',
-  description: { 
+  getDescription() { 
+    return {
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     <p><strong>Take a Stroll on Saturn's Rings:</strong> Saturn's iconic rings aren't solid, they're made of countless ice and rock particles ranging in size from tiny grains to massive boulders. While you couldn't actually walk on them, imagine floating among these icy particles, each reflecting sunlight in a mesmerizing cosmic dance. The view would be absolutely breathtaking!</p>
@@ -255,6 +280,7 @@ const saturn = {
     <p><strong>A World of Super-Fast Winds:</strong> Hold onto your helmets! Winds on Saturn can reach speeds of 1,100 miles per hour (1,800 km/h). That’s faster than a jet engine! Experience the thrill of witnessing Saturn's atmosphere as it swirls and churns, creating stunning cloud formations.</p>
     <p><strong>Floating in the Atmosphere:</strong> Saturn’s atmosphere is composed primarily of hydrogen and helium, making it incredibly light and buoyant. Experience an almost weightless sensation by floating in its atmosphere, adding a unique twist to the experience of exploring this gas giant.</p>
     ` 
+    }
   }
 }
 
@@ -266,7 +292,8 @@ const venus = {
     color3: "#8C7A50" 
   },
   image: 'url("images/venus.png")',
-  description: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     <p><strong>Hotter than Mercury!</strong> Even though Venus is farther from the Sun, it's the hottest planet in the Solar System. With surface temperatures reaching a scorching 900°F (475°C), Venus is hotter than Mercury due to its thick atmosphere of carbon dioxide that traps heat. It’s like visiting the hottest sauna in the cosmos—just be sure to admire the view from a safe distance!</p>
@@ -277,7 +304,7 @@ const venus = {
     ` 
   }
 }
-
+}
 const uranus = {
   name: 'Uranus',
   colors: { 
@@ -286,7 +313,8 @@ const uranus = {
     color3: "#6b6969" 
   },
   image: 'url("images/sun.png")',
-  description: { 
+  getDescription() { 
+    return {
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     <p><strong>The "Rollercoaster" Planet:</strong> Uranus is tilted nearly 98 degrees on its side, this offers our tourists a wild, rotating view of space! Seasons last over 20 Earth years, and you get to see the Sun rising and setting in the same spot during those extended periods of daylight and darkness.</p>
@@ -297,7 +325,7 @@ const uranus = {
     ` 
   }
 }
-
+}
 const sun = {
   name: 'Sun',
   colors: { 
@@ -306,10 +334,11 @@ const sun = {
     color3: "#6b6969" 
   },
   image: 'url("images/sun.png")',
-  description: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
     column2: ``
-  }
+    }  }
 }
