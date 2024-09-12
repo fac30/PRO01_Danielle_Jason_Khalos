@@ -15,7 +15,7 @@ document.getElementById('planetsNav').addEventListener('change', function(event)
   // Update theme colors
   document.documentElement.style.setProperty('--color-1', planet.colors.color1);
   document.documentElement.style.setProperty('--color-2', planet.colors.color2);
-  document.documentElement.style.setProperty('--placeholderText', planet.colors.color3);
+  document.documentElement.style.setProperty('--color-3', planet.colors.color3);
 });
 
 
