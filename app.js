@@ -1,3 +1,83 @@
+// CONTACT FORM
+
+/* Dani's code goes here */
+
+
+// JOURNEY CALCULATOR
+
+const travelTimes = {
+    "The Sun": 0.1,
+    "Mercury": 1.2,
+    "Venus": 1.5,
+    "Earth": 0,
+    "Mars": 2,
+    "Jupiter": 5,
+    "Saturn": 7,
+    "Neptune": 12,
+    "Uranus": 10,
+};
+
+const birthdayInput = document.getElementById('birthday');
+const planetInput = document.getElementById('planetsForm');
+const ageNowOutput = document.getElementById('age1');
+const travelTimeOutput = document.getElementById('travelTime');
+const ageOnArrivalOutput = document.getElementById('age2');
+const ageOnReturnOutput = document.getElementById('age3');
+
+birthdayInput.addEventListener('change', updateAgeNow);
+planetInput.addEventListener('input', updateTravelTime);
+
+function calculateAge(birthday) {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+function updateAgeNow() {
+    const birthday = birthdayInput.value;
+    if (birthday) {
+        const ageNow = calculateAge(birthday);
+        ageNowOutput.value = ageNow;
+        updateAgeOnArrival();
+    }
+}
+
+function updateTravelTime() {
+    const selectedPlanet = planetInput.value.trim();
+    const travelTime = travelTimes[selectedPlanet] || 0; // Handle undefined planet case
+    travelTimeOutput.value = travelTime; // Store only the numeric travel time
+    const travelUnit = (travelTime == 1 ? "year" : "years");
+    travelTimeOutput.setAttribute('data-display', `${travelTime} ${travelUnit}`); // Store the display value separately
+    updateAgeOnArrival();
+}
+
+function updateAgeOnArrival() {
+    const travelTime = parseFloat(travelTimeOutput.value); // Get the pure numeric travel time
+    const ageNow = parseInt(ageNowOutput.value, 10);
+
+    if (!birthdayInput.value) {
+        ageOnArrivalOutput.value = "";
+        ageOnReturnOutput.value = "";
+    } else if (!Number.isNaN(ageNow) && !Number.isNaN(travelTime)) {
+        const ageOnArrival = ageNow + travelTime;
+        ageOnArrivalOutput.value = `${ageOnArrival.toFixed(0)}`;
+        ageOnReturnOutput.value = `${(ageOnArrival + travelTime).toFixed(0)}`;
+    } else {
+        ageOnArrivalOutput.value = "Error";
+        ageOnReturnOutput.value = "Error";
+    }
+}
+
+
+// PLANET OBJECTS
+
 const template = {
   intro1: `<p>Welcome to <strong>`,
   intro2: `</strong>, your next interplanetary adventure! Before you pack your space gear, here
@@ -178,4 +258,3 @@ const sun = {
     column2: ``
   }
 }
-
