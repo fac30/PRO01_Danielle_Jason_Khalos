@@ -1,6 +1,7 @@
 :root {
-  --color-1: black;
-  --placeholderText: gray;
+  --color-1: #000000;
+  --color-2: #ffff;
+  --placeholderText: #6b6969;
 }
 
 /* ------------ MEDIA QUERIES ------------ */
@@ -66,7 +67,7 @@ section {
 
 form {
 	margin: 5px;
-	border: 2px dashed var(--color-2);
+	border: 2px dashed var(--color-1);
 	padding: 5px;
 }
 
