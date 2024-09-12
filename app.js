@@ -52,30 +52,38 @@ const mercury = {
   colors: {
      color1: "#1C1C1C", 
      color2: "#4A90E2", 
-     color3: "#D4B59E"
+     color3: "#919191"
     },
   image: 'url("images/mercury.png")',
   description: { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
+    <p><strong>Closest to the Sun, But Not the Hottest!</strong> Even though Mercury is the closest planet to the Sun, it’s not the hottest planet in the solar system—Venus holds that title. Mercury has virtually no atmosphere to trap heat, so it can’t retain the Sun’s warmth like Venus can. For adventurers, this makes Mercury a fascinating place to experience the raw, unfiltered power of the Sun up close!</p>
     `, 
-    column2: ``
+    column2: `
+    <p><strong>Visit The Caloris Basin:</strong> One of Mercury's most striking features is the Caloris Basin, an enormous impact crater about 960 miles (1,550 km) in diameter, caused by a colossal asteroid collision. Standing at the edge of this giant basin would give you a sense of just how powerful the forces of the universe can be.</p>
+    <p><strong>Mercury Has a Comet-Like Tail:</strong> This is due to the solar wind interacting with Mercury’s exosphere, stripping away sodium atoms and creating a glowing tail that extends millions of miles into space. You wouldn’t see this tail with your eyes from Mercury’s surface, but it's visible through special instruments</p>
+    `
   }
 }
 
 const neptune = {
   name: 'Neptune',
   colors: { 
-    color1: "#1A1B41", 
+    color1: "#0e0e24", 
     color2: "#F8F8FF", 
-    color3: "#5ED3F3" 
+    color3: "#28697a" 
   },
   image: 'url("images/neptune.png")',
   description: { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
+    <p><strong>A Stunning Shade of Blue:</strong> Neptune’s vibrant blue color is thanks to the presence of methane in its atmosphere. This gas absorbs red light and reflects blue light, giving the planet its striking hue. With its beautiful deep blue tones, Neptune is like a sapphire in the solar system, making it a must-visit for interplanetary photographers looking to capture breathtaking cosmic landscapes!</p>
     `, 
-    column2: ``
+    column2: `
+    <p><strong>Home to Rare Ice Volcanoes:</strong> In Triton, Neptune's largest moon, there are active cryovolcanoes! These "ice volcanoes" erupt supercooled nitrogen and other ices. Get ready to witness geysers shooting frosty material into the thin atmosphere of Triton, which offers a one-of-a-kind glimpse into extraterrestrial geology. This is an experience perfect for adventurous tourists looking to explore the peculiarities of icy worlds!</p>
+    <p><strong>Rings of Ice and Dust:</strong> Neptune has a faint ring system composed of ice particles and dust. As you explore the planet’s ringed wonders, you might even get a chance to observe how these rings interact with Neptune’s numerous moons!</p>
+    `
   }
 }
 
@@ -106,12 +114,10 @@ const saturn = {
   description: { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
-    <p><strong>Take a Stroll on Saturn's Rings:</strong> Saturn's iconic rings aren't solid, they're made of countless ice and rock particles ranging in size from tiny grains to massive boulders. While you couldn't actually walk on them, imagine floating among these icy particles, each reflecting sunlight in a mesmerizing cosmic dance. The view would be absolutely breathtaking!
-    </p>
+    <p><strong>Take a Stroll on Saturn's Rings:</strong> Saturn's iconic rings aren't solid, they're made of countless ice and rock particles ranging in size from tiny grains to massive boulders. While you couldn't actually walk on them, imagine floating among these icy particles, each reflecting sunlight in a mesmerizing cosmic dance. The view would be absolutely breathtaking!</p>
     `, 
     column2: `
-    <p><strong>A World of Super-Fast Winds:</strong> Hold onto your helmets! Winds on Saturn can reach speeds of 1,100 miles per hour (1,800 km/h). That’s faster than a jet engine! Experience the thrill of witnessing Saturn's atmosphere as it swirls and churns, creating stunning cloud formations.
-    </p>
+    <p><strong>A World of Super-Fast Winds:</strong> Hold onto your helmets! Winds on Saturn can reach speeds of 1,100 miles per hour (1,800 km/h). That’s faster than a jet engine! Experience the thrill of witnessing Saturn's atmosphere as it swirls and churns, creating stunning cloud formations.</p>
     <p><strong>Floating in the Atmosphere:</strong> Saturn’s atmosphere is composed primarily of hydrogen and helium, making it incredibly light and buoyant. Experience an almost weightless sensation by floating in its atmosphere, adding a unique twist to the experience of exploring this gas giant.</p>
     ` 
   }
@@ -120,41 +126,49 @@ const saturn = {
 const venus = {
   name: 'Venus',
   colors: { 
-    color1: "#4C0000", 
-    color2: "#2E2E2E", 
-    color3: "#D4B59E" 
+    color1: "#241e0d", 
+    color2: "#ede9da", 
+    color3: "#8C7A50" 
   },
   image: 'url("images/venus.png")',
   description: { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
+    <p><strong>Hotter than Mercury!</strong> Even though Venus is farther from the Sun, it's the hottest planet in the Solar System. With surface temperatures reaching a scorching 900°F (475°C), Venus is hotter than Mercury due to its thick atmosphere of carbon dioxide that traps heat. It’s like visiting the hottest sauna in the cosmos—just be sure to admire the view from a safe distance!</p>
     `, 
-    column2: `` 
+    column2: `
+    <p><strong>Retrograde Rotation:</strong> Venus has a unique rotation compared to most other planets. It spins in the opposite direction to most planets, meaning if you were on Venus, the Sun would rise in the west and set in the east. Imagine experiencing the sky changing in ways completely different from Earth</p>
+    <p><strong>A Day Longer Than a Year:</strong> A day on Venus is longer than its year! It takes Venus 243 Earth days to complete one full spin, but only 225 Earth days to orbit the Sun. That means you could experience a full Venusian year before the Sun sets on your first day there!</p>
+    ` 
   }
 }
 
 const uranus = {
   name: 'Uranus',
   colors: { 
-    color1: "#4C0000", 
-    color2: "#2E2E2E", 
-    color3: "#D4B59E" 
+    color1: "#000000", 
+    color2: "#ffff", 
+    color3: "#6b6969" 
   },
   image: 'url("images/sun.png")',
   description: { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
+    <p><strong>The "Rollercoaster" Planet:</strong> Uranus is tilted nearly 98 degrees on its side, this offers our tourists a wild, rotating view of space! Seasons last over 20 Earth years, and you get to see the Sun rising and setting in the same spot during those extended periods of daylight and darkness.</p>
     `, 
-    column2: `` 
+    column2: `
+    <p><strong>The Ultimate Ice Resort:</strong> Welcome to the coldest destination in the solar system! Uranus can reach frigid lows of -371°F (-224°C), making it the perfect spot for extreme winter sports. Just make sure to pack for the subzero temperatures!</p>
+    <p><strong>Floating Rings with a View:</strong> Uranus has 13 delicate rings, made of dark particles. Imagine gazing at these faint, mysterious rings from the surface of one of Uranus's 27 moons. Talk about a celestial view for your vacation selfies!</p>
+    ` 
   }
 }
 
 const sun = {
   name: 'Sun',
   colors: { 
-    color1: "#4C0000", 
-    color2: "#2E2E2E", 
-    color3: "#D4B59E" 
+    color1: "#00000", 
+    color2: "#ffff", 
+    color3: "#6b6969" 
   },
   image: 'url("images/sun.png")',
   description: { 
