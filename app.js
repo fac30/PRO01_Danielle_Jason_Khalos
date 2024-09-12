@@ -342,3 +342,13 @@ const sun = {
     column2: ``
     }  }
 }
+
+window.jupiter = jupiter;
+window.mars = mars;
+window.mercury = mercury;
+window.neptune = neptune;
+window.pluto = pluto;
+window.saturn = saturn;
+window.venus = venus;
+window.uranus = uranus;
+window.sun = sun;
