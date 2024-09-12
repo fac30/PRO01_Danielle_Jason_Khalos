@@ -63,8 +63,10 @@ const jupiter = {
     return {
       column1: `
       ${template.intro1}${this.name}${template.intro2}
-      <p><strong>The Ultimate Giant:</strong> Jupiter is so big that over 1,300 Earths could fit inside it!...</p>`,
-      column2: `<p><strong>Moon-Hopping Adventures:</strong> Jupiter has 79 moons...</p>`
+      <p><strong>The Ultimate Giant:</strong> Jupiter is so big that over 1,300 Earths could fit inside it! This gas giant is the largest planet in the Solar System. Visiting Jupiter would make you feel like you’ve stepped onto a truly colossal world. Imagine gazing at its vast swirling clouds and the famous Great Red Spot, a storm bigger than Earth that’s been raging for centuries.</p>`,
+      column2: `<p><strong>Moon-Hopping Adventures:</strong> Jupiter has 79 moons, and four of them -Io, Europa, Ganymede, and Callisto— are bigger than any planet in the inner Solar System (except Earth). Each moon offers a different adventure, from volcanic landscapes on Io to possible alien oceans on Europa!</p>
+
+    <p><strong>Experience Jupiter’s Superfast Days:</strong> Want to experience a fast-paced day? A day on Jupiter lasts only 10 hours! Despite being the largest planet, it spins the fastest, so while you're enjoying the sights, the sun will rise and set in no time. Perfect for those who want to experience multiple sunrises and sunsets in a single Earth day!</p>`
     }
   }
 }
