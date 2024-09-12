@@ -1,9 +1,60 @@
+/*
+Aim of the JS
+- The function will change through color schemes set up per planet.
+- When the user chooses a planet from the drop down menu, this will trigger the 
+  function to choose the planet object which will contain the corresponding planet. 
+
+- There will be 9 planets so there needs to be 9 color scheme - except pluto which will be a 404 error
+
+mars
+venus
+earth
+mercury
+jupiter
+saturn
+uranus
+neptune
+pluto
+
+color 1 - h1's, p's, text elements
+color 2 - background
+
+
+*/
+
+// document.documentElement.style.setProperty('--color-1', planet.color1);
+// document.documentElement.style.setProperty('--color-2', planet.color2);
+
+
+
+document.getElementById('planetsNav').addEventListener('change', function(event) {
+  const planetName = event.target.value;
+  
+  // Get the selected planet's data (e.g., jupiter, mars)
+  const planet = window[planetName]; // Assuming you have them in global scope
+  const description = planet.getDescription();
+
+  // Update page content
+  document.getElementById('planetName').innerHTML = planet.name;
+  document.getElementById('infoLeft').innerHTML = description.column1;
+  document.getElementById('infoRight').innerHTML = description.column2;
+
+  // Update theme colors
+  document.body.style.backgroundColor = planet.colors.color1;
+});
+
+
+
 const template = {
   intro1: `<p>Welcome to <strong>`,
   intro2: `</strong>, your next interplanetary adventure! Before you pack your space gear, here
     are some fun facts that make it a must-visit vacation spot for all cosmic travelers:</p>`
 }
 
+
+/* Planet data */
+
+/* Changed the description into a function so that this.name works */
 const jupiter = {
   name: 'Jupiter',
   colors: {
@@ -12,14 +63,13 @@ const jupiter = {
     color3: "#A1887F"
   },
   image: 'url("images/jupiter.png")',
-  description: {
-    column1: `
-    ${template.intro1}${this.name}${template.intro2}
-    <p><strong>The Ultimate Giant:</strong> Jupiter is so big that over 1,300 Earths could fit inside it! This gas giant is the largest planet in the Solar System. Visiting Jupiter would make you feel like you’ve stepped onto a truly colossal world. Imagine gazing at its vast swirling clouds and the famous Great Red Spot, a storm bigger than Earth that’s been raging for centuries.</p>
-    `,
-    column2: `<p><strong>Moon-Hopping Adventures:</strong> Jupiter has 79 moons, and four of them -Io, Europa, Ganymede, and Callisto— are bigger than any planet in the inner Solar System (except Earth). Each moon offers a different adventure, from volcanic landscapes on Io to possible alien oceans on Europa!</p>
-
-    <p><strong>Experience Jupiter’s Superfast Days:</strong> Want to experience a fast-paced day? A day on Jupiter lasts only 10 hours! Despite being the largest planet, it spins the fastest, so while you're enjoying the sights, the sun will rise and set in no time. Perfect for those who want to experience multiple sunrises and sunsets in a single Earth day!</p>`
+  getDescription() {
+    return {
+      column1: `
+      ${template.intro1}${this.name}${template.intro2}
+      <p><strong>The Ultimate Giant:</strong> Jupiter is so big that over 1,300 Earths could fit inside it!...</p>`,
+      column2: `<p><strong>Moon-Hopping Adventures:</strong> Jupiter has 79 moons...</p>`
+    }
   }
 }
 
@@ -31,7 +81,8 @@ const mars = {
     color3: "#D4B59E" 
   },
   image: 'url("images/mars.png")',
-  descriptions: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2} 
     <p><strong>Experience "Martian Gravity":</strong> Mars has only 38% of Earth’s gravity. Imagine jumping three
@@ -44,6 +95,7 @@ const mars = {
     <p><strong>Red Dust Sunsets:</strong> Mars’ sky appears reddish-pink during the day, but at sunset, the sky
     turns blue! It’s the reverse of Earth — perfect for dreamy evening stargazing.</p>
     `
+    }
   }
 }
 
@@ -55,11 +107,13 @@ const mercury = {
      color3: "#D4B59E"
     },
   image: 'url("images/mercury.png")',
-  description: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
     column2: ``
+    }
   }
 }
 
@@ -71,11 +125,13 @@ const neptune = {
     color3: "#5ED3F3" 
   },
   image: 'url("images/neptune.png")',
-  description: { 
+  getDescription() {
+    return{ 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
     column2: ``
+    }
   }
 }
 
@@ -87,11 +143,13 @@ const pluto = {
     color3: "#D4B59E" 
   },
   image: 'url("images/pluto.png")',
-  description: { 
+  getDescription() { 
+    return {
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
     column2: `` 
+    }
   }
 }
 
@@ -103,7 +161,8 @@ const saturn = {
     color3: "#B8860B" 
   },
   image: 'url("images/saturn.png")',
-  description: { 
+  getDescription() { 
+    return {
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     <p><strong>Take a Stroll on Saturn's Rings:</strong> Saturn's iconic rings aren't solid, they're made of countless ice and rock particles ranging in size from tiny grains to massive boulders. While you couldn't actually walk on them, imagine floating among these icy particles, each reflecting sunlight in a mesmerizing cosmic dance. The view would be absolutely breathtaking!
@@ -114,6 +173,7 @@ const saturn = {
     </p>
     <p><strong>Floating in the Atmosphere:</strong> Saturn’s atmosphere is composed primarily of hydrogen and helium, making it incredibly light and buoyant. Experience an almost weightless sensation by floating in its atmosphere, adding a unique twist to the experience of exploring this gas giant.</p>
     ` 
+    }
   }
 }
 
@@ -125,11 +185,13 @@ const venus = {
     color3: "#D4B59E" 
   },
   image: 'url("images/venus.png")',
-  description: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
-    column2: `` 
+    column2: ``
+    } 
   }
 }
 
@@ -141,11 +203,13 @@ const uranus = {
     color3: "#D4B59E" 
   },
   image: 'url("images/sun.png")',
-  description: { 
+  getDescription() { 
+    return {
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
-    column2: `` 
+    column2: ``
+    } 
   }
 }
 
@@ -157,11 +221,13 @@ const sun = {
     color3: "#D4B59E" 
   },
   image: 'url("images/sun.png")',
-  description: { 
+  getDescription() {
+    return { 
     column1: `
     ${template.intro1}${this.name}${template.intro2}
     `, 
     column2: ``
+    }
   }
 }
 
