@@ -1,6 +1,61 @@
-// CONTACT FORM
+// COLOUR SWITCHER
 
 /* Dani's code goes here */
+
+
+// CONTACT FORM
+
+document.getElementById('form3-1').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    const name1 = document.getElementById('name1').value.trim();
+    const name2 = document.getElementById('name2').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const planet = document.getElementById('planetsForm').value.trim();
+    const birthday = document.getElementById('birthday').value;
+  
+    if (!name1) {
+      alert('Please enter a valid Name 1.');
+      return;
+    }
+    if (!name2) {
+      alert('Please enter a valid Name 2.');
+      return;
+    }
+    if (!validateEmail(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    if (!planet) {
+      alert('Please select a planet.');
+      return;
+    }
+    if (!birthday) {
+      alert('Please enter your birthday.');
+      return;
+    }
+  
+    const modal = document.getElementById('thankYouModal');
+    const modalMessage = document.getElementById('modalMessage');
+    modalMessage.textContent = `Thank you ${name1} ${name2}. We will contact you soon.`;
+  
+    modal.style.display = "block";
+  
+    document.querySelector('.close').onclick = function() {
+      modal.style.display = "none";
+    };
+  
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+});
+  
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return re.test(String(email).toLowerCase());
+}
 
 
 // JOURNEY CALCULATOR
