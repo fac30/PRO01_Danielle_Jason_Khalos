@@ -131,14 +131,15 @@
                 <option value="Uranus">
               </datalist>
               
-              <label for="travelTime">Journey Time</label>
-              <output id="travelTime" for="planetsForm"></output>
+              <!--<output id="travelTime" data-display=""></output>-->
+              <label for="travelTime">Journey Time in Years</label>
+              <output id="travelTime"></output>
 
               <label for="age2">Age on Arrival</label>
-              <output id="age2" for="age1, travelTime"></output>
+              <output id="age2"></output>
 
               <label for="age3">Age on Return</label>
-              <output id="age3" for="age2, travelTime"></output>
+              <output id="age3"></output>
             </fieldset>
           </div>
 
@@ -148,6 +149,9 @@
         </form>
 
         <script>
+          /*
+            document.getElementById('travelTime').textContent = travelTimeOutput.getAttribute('data-display');
+          */
           const travelTimes = {
             "The Sun": 0.1,
             "Mercury": 1.2,
@@ -194,18 +198,18 @@
         
           function updateTravelTime() {
             const selectedPlanet = planetInput.value.trim();
-            const travelTime = travelTimes[selectedPlanet].toFixed(0) || 0;
+            const travelTime = travelTimes[selectedPlanet] || 0; // Handle undefined planet case
+            travelTimeOutput.value = travelTime; // Store only the numeric travel time
             const travelUnit = (travelTime == 1 ? "year" : "years");
-            travelTimeOutput.value = `${travelTime} ${travelUnit}`;
+            travelTimeOutput.setAttribute('data-display', `${travelTime} ${travelUnit}`); // Store the display value separately
             updateAgeOnArrival();
           }
 
           function updateAgeOnArrival() {
-            const travelTime = parseFloat(travelTimeOutput.value).toFixed(0);
+            const travelTime = parseFloat(travelTimeOutput.value); // Get the pure numeric travel time
             const ageNow = parseInt(ageNowOutput.value, 10);
-            const birthday = birthdayInput.value;
 
-            if (!birthday) {
+            if (!birthdayInput.value) {
               ageOnArrivalOutput.value = "";
               ageOnReturnOutput.value = "";
             } else if (!Number.isNaN(ageNow) && !Number.isNaN(travelTime)) {
