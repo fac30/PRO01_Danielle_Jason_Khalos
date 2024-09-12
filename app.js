@@ -1,30 +1,7 @@
-/*
-Aim of the JS
-- The function will change through color schemes set up per planet.
-- When the user chooses a planet from the drop down menu, this will trigger the 
-  function to choose the planet object which will contain the corresponding planet. 
-
-- There will be 9 planets so there needs to be 9 color scheme - except pluto which will be a 404 error
-
-mars
-venus
-earth
-mercury
-jupiter
-saturn
-uranus
-neptune
-pluto
-
-color 1 - h1's, p's, text elements
-color 2 - background
-
-
-*/
-
+// COLOUR SWITCHER
 
 document.getElementById('planetsNav').addEventListener('change', function(event) {
-  const planetName = event.target.value;
+  const planetName = event.target.value.toLowerCase();
   
   // Get the selected planet's data (e.g., jupiter, mars)
   const planet = window[planetName]; // Assuming you have them in global scope
@@ -36,10 +13,141 @@ document.getElementById('planetsNav').addEventListener('change', function(event)
   document.getElementById('infoRight').innerHTML = description.column2;
 
   // Update theme colors
-  document.body.style.backgroundColor = planet.colors.color1;
+  document.documentElement.style.setProperty('--color-1', planet.colors.color1);
+  document.documentElement.style.setProperty('--color-2', planet.colors.color2);
+  document.documentElement.style.setProperty('--color-3', planet.colors.color3);
 });
 
 
+// CONTACT FORM
+
+document.getElementById('form3-1').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    const name1 = document.getElementById('name1').value.trim();
+    const name2 = document.getElementById('name2').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const planet = document.getElementById('planetsForm').value.trim();
+    const birthday = document.getElementById('birthday').value;
+  
+    if (!name1) {
+      alert('Please enter a valid Name 1.');
+      return;
+    }
+    if (!name2) {
+      alert('Please enter a valid Name 2.');
+      return;
+    }
+    if (!validateEmail(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    if (!planet) {
+      alert('Please select a planet.');
+      return;
+    }
+    if (!birthday) {
+      alert('Please enter your birthday.');
+      return;
+    }
+  
+    const modal = document.getElementById('thankYouModal');
+    const modalMessage = document.getElementById('modalMessage');
+    modalMessage.textContent = `Thank you ${name1} ${name2}. We will contact you soon.`;
+  
+    modal.style.display = "block";
+  
+    document.querySelector('.close').onclick = function() {
+      modal.style.display = "none";
+    };
+  
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+});
+  
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return re.test(String(email).toLowerCase());
+}
+
+
+// JOURNEY CALCULATOR
+
+const travelTimes = {
+    "The Sun": 0.1,
+    "Mercury": 1.2,
+    "Venus": 1.5,
+    "Earth": 0,
+    "Mars": 2,
+    "Jupiter": 5,
+    "Saturn": 7,
+    "Neptune": 12,
+    "Uranus": 10,
+};
+
+const birthdayInput = document.getElementById('birthday');
+const planetInput = document.getElementById('planetsForm');
+const ageNowOutput = document.getElementById('age1');
+const travelTimeOutput = document.getElementById('travelTime');
+const ageOnArrivalOutput = document.getElementById('age2');
+const ageOnReturnOutput = document.getElementById('age3');
+
+birthdayInput.addEventListener('change', updateAgeNow);
+planetInput.addEventListener('input', updateTravelTime);
+
+function calculateAge(birthday) {
+    const birthDate = new Date(birthday);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+function updateAgeNow() {
+    const birthday = birthdayInput.value;
+    if (birthday) {
+        const ageNow = calculateAge(birthday);
+        ageNowOutput.value = ageNow;
+        updateAgeOnArrival();
+    }
+}
+
+function updateTravelTime() {
+    const selectedPlanet = planetInput.value.trim();
+    const travelTime = travelTimes[selectedPlanet] || 0; // Handle undefined planet case
+    travelTimeOutput.value = travelTime; // Store only the numeric travel time
+    const travelUnit = (travelTime == 1 ? "year" : "years");
+    travelTimeOutput.setAttribute('data-display', `${travelTime} ${travelUnit}`); // Store the display value separately
+    updateAgeOnArrival();
+}
+
+function updateAgeOnArrival() {
+    const travelTime = parseFloat(travelTimeOutput.value); // Get the pure numeric travel time
+    const ageNow = parseInt(ageNowOutput.value, 10);
+
+    if (!birthdayInput.value) {
+        ageOnArrivalOutput.value = "";
+        ageOnReturnOutput.value = "";
+    } else if (!Number.isNaN(ageNow) && !Number.isNaN(travelTime)) {
+        const ageOnArrival = ageNow + travelTime;
+        ageOnArrivalOutput.value = `${ageOnArrival.toFixed(0)}`;
+        ageOnReturnOutput.value = `${(ageOnArrival + travelTime).toFixed(0)}`;
+    } else {
+        ageOnArrivalOutput.value = "Error";
+        ageOnReturnOutput.value = "Error";
+    }
+}
+
+
+// PLANET OBJECTS
 
 const template = {
   intro1: `<p>Welcome to <strong>`,
@@ -239,3 +347,12 @@ const sun = {
     }  }
 }
 
+window.jupiter = jupiter;
+window.mars = mars;
+window.mercury = mercury;
+window.neptune = neptune;
+window.pluto = pluto;
+window.saturn = saturn;
+window.venus = venus;
+window.uranus = uranus;
+window.sun = sun;

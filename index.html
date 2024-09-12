@@ -15,7 +15,7 @@
 
 <body>
   <nav>
-    <div id="links">
+    <div id="navLinks">
       <div>
         <a href="#home">Home</a>
       </div>
@@ -36,8 +36,17 @@
     <div id="navBuffer">
     </div>
 
-    <div id="planetMenu">
-      <pre>Dropdown menu</pre>
+    <div id="navPlanetMenu">
+      <select name="planets" id="planetsNav">
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus</option>
+        <option value="Earth">Earth</option>
+        <option value="Mars">Mars</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Neptune">Neptune</option>
+        <option value="Uranus">Uranus</option>
+      </select>
     </div>
   </nav>
 
@@ -70,21 +79,80 @@
     <hr/>
 
     <section id="contact">
-      <h3>Contact Us</h3>
+      <div>
+        <h3>Contact Us</h3>
+      </div>
+      
+      <div id="formHolder">
+        <form action="submit">
+          <div class="formContainer">
+            <fieldset id="formName">
+              <legend>Your Details</legend>
+            
+              <label for="name1">Name 1</label>
+              <input type="text" id="name1" name="name1">
 
-      <div class="contact-form">
-      <form action="submit">
-        <h4>A Form</h4>
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname"><br><br>
-        <label for="email" id="email">Email:</label><br>
-        <input type="email" id="email"><br><br>
-        <textarea name="message" rows="10" cols="30" placeholder="Share your thoughts!"></textarea><br><br>
-        <button>Submit</button>
-      </form>
-    </div>
+              <label for="name2">Name 2</label>
+              <input type="text" id="name2" name="name2">
+
+              <label for="email">Email</label>
+              <input type="email" id="email">
+            </fieldset>
+
+            <fieldset id="formMessage">
+              <legend>Message</legend>
+
+              <textarea name="message" rows="10" cols="30" placeholder="Share your thoughts!">
+              </textarea>
+            </fieldset>
+
+            <fieldset id="formTrip">
+              <legend>Getaway</legend>
+              
+              <label for="birthday">Date of Birth</label>
+              <input type="date" id="birthday" name="birthday">
+
+              <label for="age1">Age Now</label>
+              <output id="age1" for="birthday"></output>
+            
+              <label for="planetsList">Destination</label>
+              <input id="planetsForm" list="planetsList">
+              <datalist id="planetsList">
+                <option value="The Sun">
+                <option value="Mercury">
+                <option value="Venus">
+                <option value="Earth">
+                <option value="Mars">
+                <option value="Jupiter">
+                <option value="Saturn">
+                <option value="Neptune">
+                <option value="Uranus">
+              </datalist>
+              
+              <!--<output id="travelTime" data-display=""></output>-->
+              <label for="travelTime">Journey Time in Years</label>
+              <output id="travelTime"></output>
+
+              <label for="age2">Age on Arrival</label>
+              <output id="age2"></output>
+
+              <label for="age3">Age on Return</label>
+              <output id="age3"></output>
+            </fieldset>
+          </div>
+
+          <div id="form3-1">
+            <button>Book Your Getaway</button>
+          </div>
+        </form>
+        
+        <div id="thankYouModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modalMessage"></p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <hr/>
